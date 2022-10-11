@@ -6,13 +6,19 @@
 
     <script>
 
-        const xhr = new XMLHttpRequest();
+        const getData = async ( url ) => {
 
-        xhr.open( "GET" , "./json/invoices.json" );
+            const res = await fetch( url );
 
-        xhr.send();
+            return res.json();
+        }
 
+        getData( "01Refactoring/json/invoices.json" ).then( data => {
 
+            console.log( data );
+
+            debugger;
+        } )
 
 
     </script>
