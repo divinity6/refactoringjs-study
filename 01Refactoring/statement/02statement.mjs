@@ -3,7 +3,7 @@
  * - 공연료 청구서를 출력하는 함수입니다
  *
  * @param { Invoice } invoice
- * @param { Play } plays
+ * @param { { Play } } plays
  *
  * @return { string } - 청구서 결과를 문자열로 반환합니다
  */
@@ -58,36 +58,81 @@ function statement( invoice , plays ){
  *
  * @return { number } - 현재 청구내역
  */
-function amountFor( pref , play ){
+function amountFor_old( pref , play ){
 
     /** 값이 변경되는 변수는 조심해서 다루어야 합니다 */
-    let thisAmount = 0;
+    let result = 0; // 명확한 이름으로 변경
 
     /** 공연료 계산 */
     switch( play.type ){
         /** 비극 */
         case "tragedy" :
-            thisAmount = 40000;
+            result = 40000;
             if ( pref.audience > 30 ){
-                thisAmount += 1000 * ( pref.audience - 30 );
+                result += 1000 * ( pref.audience - 30 );
             }
             break;
 
         /** 희극 */
         case "comedy" :
-            thisAmount = 30000;
+            result = 30000;
             if ( pref.audience > 20 ){
-                thisAmount += 1000 + 500 * ( pref.audience - 20 );
+                result += 1000 + 500 * ( pref.audience - 20 );
             }
 
-            thisAmount += 300 * pref.audience;
+            result += 300 * pref.audience;
             break;
 
         default :
             throw new Error( `알 수 없는 장르 : ${ play.type }` )
     }
 
-    return thisAmount;
+    return result;
 }
+
+/**
+ *
+ * - pref 와 play 는 추출한 새로운 함수에서도 필요하지만, 값을 변경하지는 않는다.
+ * --> 따라서 파라미터로 전달하기 적합하다
+ *
+ * 그러나 thisAmount 는 함수안에서 값이 변경되기 때문에 다룰때 조심해야한다
+ *
+ * @param { Performance } aPerformance - 명확한 이름으로 파라미터 이름변경
+ * @param { Play } play
+ *
+ * @return { number } - 현재 청구내역
+ */
+function amountFor( aPerformance , play ){
+
+    /** 값이 변경되는 변수는 조심해서 다루어야 한다 */
+    let result = 0; // 명확한 이름으로 변경
+
+    /** 공연료 계산 */
+    switch( play.type ){
+        /** 비극 */
+        case "tragedy" :
+            result = 40000;
+            if ( aPerformance.audience > 30 ){
+                result += 1000 * ( aPerformance.audience - 30 );
+            }
+            break;
+
+        /** 희극 */
+        case "comedy" :
+            result = 30000;
+            if ( aPerformance.audience > 20 ){
+                result += 1000 + 500 * ( aPerformance.audience - 20 );
+            }
+
+            result += 300 * aPerformance.audience;
+            break;
+
+        default :
+            throw new Error( `알 수 없는 장르 : ${ play.type }` )
+    }
+
+    return result;
+}
+
 
 export default statement;

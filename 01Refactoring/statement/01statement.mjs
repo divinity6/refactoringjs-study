@@ -3,7 +3,7 @@
  * - 공연료 청구서를 출력하는 함수입니다
  *
  * @param { Invoice } invoice
- * @param { Play } plays
+ * @param { { Play } } plays
  *
  * @return { string } - 청구서 결과를 문자열로 반환합니다
  */

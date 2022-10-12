@@ -26,6 +26,11 @@
  *
  * 공연 정보 및 타입
  *
+ * @property { string } name
+ * @property { string } type
+ */
+
+/**
  * @property { { name : string , type : string } } hamlet
  * @property { { name : string , type : string } } othello
  * @property { { name : string , type : string } } as-like

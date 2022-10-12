@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/02statement.mjs";
+import statement from "./statement/05statement.mjs";
 
 /**
  * @public
