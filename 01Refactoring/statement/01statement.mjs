@@ -1,18 +1,11 @@
 /**
- * @Intl
- *
- * - 각각 나라 국가별로 언어 포멧팅을 지원하는 생성자 함수들을 모아둔 객체( API )입니다
- *
- * @link https://www.daleseo.com/js-intl-api/
- *
- */
-
-/**
  *
  * - 공연료 청구서를 출력하는 함수입니다
  *
  * @param { Invoice } invoice
  * @param { Play } plays
+ *
+ * @return { string } - 청구서 결과를 문자열로 반환합니다
  */
 function statement( invoice , plays ){
 
