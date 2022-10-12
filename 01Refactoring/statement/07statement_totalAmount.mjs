@@ -62,11 +62,6 @@ function statement( invoice , plays ){
         } ).format( aNumber / 100 );
     }
 
-    /**
-     * - 포인트 적립과 관련된 로직을 함수로 추출
-     *
-     * @return { number } - 누적 포인트 적립 값
-     */
     function totalVolumeCredits(){
         let result = 0;
         /** 값을 누적하는 로직을 별도로 분리한다 */
@@ -77,21 +72,37 @@ function statement( invoice , plays ){
         return result;
     }
 
-    let totalAmount = 0;
+    /**
+     * @important 임시이름 부여( appleSauce )
+     *
+     * - totalAmount 를 함수로 추출하는게 제일 좋지만,
+     *   이미 같은 이름의 변수가 있기 때문에, appleSauce 같은 이름을 일단 붙여준다
+     *
+     * - 그 후, 변수들을 제거하고, 인라인하며 의미 있는 이름으로 리팩터링 한다.
+     *
+     *   @return { number }
+     */
+    function totalAmount(){
+
+        let result = 0;
+
+        for ( let pref of invoice.performances ){
+            result += amountFor( pref );
+        }
+
+        return result;
+    }
 
     let result = `청구 내역 ( 고객명 : ${ invoice.customer } )\n`;
 
     for ( let pref of invoice.performances ){
 
-        /** 청구내역 출력 */
         result += `${ playFor( pref ).name } : ${ usd( amountFor( pref ) ) } ( ${ pref.audience }석 )\n`;
-
-        totalAmount += amountFor( pref );
 
     }
 
-    /** 값을 초기화 하는 부분을 별도로 분리후, 관련된 값들을 한군데 모아둔다 */
-    result += `총액 : ${ usd( totalAmount ) }\n`;
+    result += `총액 : ${ usd( totalAmount() ) }\n`;
+
     result += `적립 포인트 : ${ totalVolumeCredits() }점 \n`;
 
     return result;

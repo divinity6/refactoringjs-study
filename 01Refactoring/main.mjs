@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/06statement_totalVolumeCredits.mjs";
+import statement from "./statement/07statement_totalAmount.mjs";
 
 /**
  * @public
