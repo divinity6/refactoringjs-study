@@ -1,19 +1,37 @@
 // 실제 구현부
-import statement from "./statement/11statement_pipeLine.mjs";
+import statement from "./statement/12statement_createStatementData.mjs";
 
 /**
  * @public
  *
- * - 데이터를 가져옵니다
+ * - JSON 데이터를 가져옵니다
  *
  * @param { String } url
  * @return {Promise<any>}
  */
-const getData = async ( url ) => {
+const fetchJsonData = async ( url ) => {
 
     const res = await fetch( url );
 
     return res.json();
+}
+
+const getURLData = ( urls , run ) => {
+
+    const _urls = [];
+
+    urls.map( async u => {
+
+         const url = await fetchJsonData( u );
+
+         _urls.push( url );
+
+         if ( urls.length === _urls.length ){
+             run( ..._urls );
+         }
+
+    } );
+
 }
 
 /**
@@ -25,15 +43,16 @@ const getData = async ( url ) => {
  */
 const run = async () => {
 
-    const invoices = await getData( "01Refactoring/json/invoices.json" )
+    const urls = [ "01Refactoring/json/invoices.json" , "01Refactoring/json/plays.json" ];
 
-    const plays = await getData( "01Refactoring/json/plays.json" );
+    getURLData( urls , ( invoices , plays ) => {
 
-    const results = invoices.map( invoice => statement( invoice , plays ) );
+        const results = invoices.map( invoice => statement( invoice , plays ) );
 
-    console.log( results );
+        console.log( results );
 
-    debugger;
+        debugger;
+    } );
 
 }
 
