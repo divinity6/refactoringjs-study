@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/10statement_statementData.mjs";
+import statement from "./statement/11statement_pipeLine.mjs";
 
 /**
  * @public

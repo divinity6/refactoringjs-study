@@ -46,6 +46,7 @@
     - <span style="color:#ffb300">result</span> : 반환하는 값의 변수이름
     - <span style="color:#ffb300">plainText</span> : 읽을 수 있는 텍스트
     - <span style="color:#ffb300">~For</span> : 해당 객체의 값을 key 값으로 등으로 가져올때
+    - <span style="color:#ffb300">total</span> : reduce 시 acc 보단 total
 
 
 - 매개변수의 역할이 뚜렷하지 않을때는 부정관사를 붙이는 습관<span style="color:#ffb300">( a / an )</span>을 들이자
@@ -66,7 +67,7 @@
 - <span style="color:#ffb300">계산 처리와 데이터 처리를 나누자</span>
   - 계산처리는 데이터 구조를 조합하거나 다른곳에 할당하는등
   - 함수형프로그라밍 계산처리( 시간에 관계없는 처리 )
-
+  - 이게 말처럼 쉽지가 아늠... ㅠㅠ
 ---
 
 현재 프로그람이 새로운 기능을 추가하기 편한 구조가 아니라면,
@@ -93,3 +94,5 @@
     - 문장 슬라이드하기
     - 함수 추출하기
     - 변수 인라인하기
+    - 함수 옮기기
+    - 반복문을 파이프라인으로 바꾸기
