@@ -9,6 +9,24 @@
  */
 function statement( invoice , plays ){
 
+    /** 중간 데이터 구조역할을 할 객체 생성 */
+    const statementData = {};
+
+    /** 실제 행위를 별도의 함수로 분리 */
+    return renderPlainText( statementData , invoice , plays );
+}
+
+/**
+ * - 실제 본문자체를 PlainText 라는 함수 객체로 분리합니다
+ *
+ * @param { {} } data - 중간 데이터 구조입니다
+ * @param { Invoice } invoice
+ * @param { { Play } } plays
+ *
+ * @return { string } - 청구서 결과를 문자열로 반환합니다
+ */
+function renderPlainText( data , invoice , plays ){
+
     let result = `청구 내역 ( 고객명 : ${ invoice.customer } )\n`;
 
     for ( let pref of invoice.performances ){

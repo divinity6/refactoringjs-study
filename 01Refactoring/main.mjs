@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/08statement_nestedFunc.mjs";
+import statement from "./statement/10statement_statementData.mjs";
 
 /**
  * @public
