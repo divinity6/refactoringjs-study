@@ -9,7 +9,8 @@ import createStatementData from "./createStatementData.mjs";
  */
 function htmlStatement( invoice , plays ){
 
-    return renderPlainText( createStatementData( invoice , plays ) );
+    /** 중간데이터 생성 함수를 공유합니다 */
+    return renderHtml( createStatementData( invoice , plays ) );
 
 }
 
@@ -26,19 +27,31 @@ function htmlStatement( invoice , plays ){
  *
  * @return { string } - 청구서 결과를 문자열로 반환합니다
  */
-function renderPlainText( data ){
+function renderHtml( data ){
 
-    let result = `청구 내역 ( 고객명 : ${ data.customer } )\n`;
+    let result = `<h1>청구 내역 ( 고객명 : ${ data.customer } )</h1> \n`;
+
+    result += `<table> \n`;
+    result += `<tr>
+                <th>연극</th>
+                <th>좌석 수</th>
+                <th>금액</th>
+               </tr>`
 
     for ( let pref of data.performances ){
 
-        result += `${ pref.play.name } : ${ usd( pref.amount ) } ( ${ pref.audience }석 )\n`;
-
+        result += `<tr>
+                    <td>${ pref.play.name }</td>
+                    <td>( ${  pref.audience }석 )</td>
+                    <td>${ usd( pref.amount ) }</td>
+                   </tr> \n`
     }
 
-    result += `총액 : ${ usd( data.totalAmount ) }\n`;
+    result += `</table>`
 
-    result += `적립 포인트 : ${ data.totalVolumeCredits }점 \n`;
+    result += `<p>총액 : <em>${ usd( data.totalAmount ) }</em></p> \n`;
+
+    result += `<p>적립 포인트 : <em>${ data.totalVolumeCredits }</em>점</p> \n`;
 
     return result;
 

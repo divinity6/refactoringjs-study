@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/12statement_createStatementData.mjs";
+import statement from "./statement/14htmlVersion/statement.mjs";
 
 /**
  * @public
@@ -49,9 +49,8 @@ const run = async () => {
 
         const results = invoices.map( invoice => statement( invoice , plays ) );
 
-        console.log( results );
+        document.querySelector( '#statement' ).innerHTML = results;
 
-        debugger;
     } );
 
 }
