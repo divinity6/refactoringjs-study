@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/14htmlVersion/statement.mjs";
+import statement from "./statement/15polymorphism/statement.mjs";
 
 /**
  * @public
