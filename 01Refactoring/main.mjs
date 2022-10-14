@@ -1,5 +1,5 @@
 // 실제 구현부
-import statement from "./statement/16performanceCalculator/statement.mjs";
+import statement from "./statement/17polymorphism/statement.mjs";
 
 /**
  * @public
