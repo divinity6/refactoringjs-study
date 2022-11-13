@@ -43,7 +43,7 @@ const getURLData = ( urls , run ) => {
  */
 const run = async () => {
 
-    const urls = [ "01Refactoring/json/invoices.json" , "01Refactoring/json/plays.json" ];
+    const urls = [ "./json/invoices.json" , "./json/plays.json" ];
 
     getURLData( urls , ( invoices , plays ) => {
 

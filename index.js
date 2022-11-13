@@ -1,5 +1,6 @@
 /** 일단 패스 박아둠 */
-const path = "01Refactoring/performance.html";
+// const path = "01Refactoring/index.html";
+const path = "/";
 
 /**
  * 1. 코드는 강좌에 맞춘 것으로 범용성이 없습니다.
