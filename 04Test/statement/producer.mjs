@@ -1,5 +1,5 @@
 /**
- * 단순한 데이터 저장로 사용하는 생산자 객체
+ * 단순한 데이터 저장로 사용하는 생성자 객체
  */
 export default class Producer {
 
