@@ -48,7 +48,8 @@
     - <span style="color:#ffb300">plainText</span> : 읽을 수 있는 텍스트
     - <span style="color:#ffb300">~For</span> : 해당 객체의 값을 key 값으로 등으로 가져올때
     - <span style="color:#ffb300">total</span> : reduce 시 acc 보단 total
-    - <span style="color:#ffb300">enrich</span> : 해당 객체의 내부 프로퍼티를 추가하거나 채울때
+    - <span style="color:#ffb300">enrich</span> : 해당 객체의 내부 프로퍼티를 추가하거나 채우는등, 내부 프로퍼티를 변경할때
+    - <span style="color:#ffb300">transform</span> : 해당 객체의 형태자체가 변경될때
 
 
 - 매개변수의 역할이 뚜렷하지 않을때는 부정관사를 붙이는 습관<span style="color:#ffb300">( a / an )</span>을 들이자
